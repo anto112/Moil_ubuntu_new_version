@@ -62,7 +62,7 @@ RUN yes | unminimize \
 RUN useradd -m sudoer \
 	&& echo "sudoer:123456" | chpasswd \
 	&& usermod -aG sudo sudoer \
-	#&& echo '%sudo ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers \
+	#&& echo '%sudo ALL=(ALL:ALL) ALL' >> /etc/sudoers \
 	&& sudo usermod -s /bin/bash sudoer \
 	&& cp /root/.bashrc /home/sudoer/ \
 	&& echo "You success make a new user, good job !!" >> /etc/skel/readme.txt \
