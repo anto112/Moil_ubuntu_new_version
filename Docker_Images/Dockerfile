@@ -58,18 +58,19 @@ RUN yes | unminimize \
 	&& pip3 install --upgrade pip \
 	&& pip install --upgrade setuptools
 
-# Create user "Student" with sudo powers
+# Create user "Sudoer" with sudo powers
 RUN useradd -m sudoer \
+	&& echo "sudoer:123456" | chpasswd \
 	&& usermod -aG sudo sudoer \
-	&& echo '%sudo ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers \
+	#&& echo '%sudo ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers \
 	&& sudo usermod -s /bin/bash sudoer \
 	&& cp /root/.bashrc /home/sudoer/ \
-	&& cp /root/.bashrc /etc/skel/ \
-	#&& echo 'HOME=/home/sudoer/workdir' >> /etc/skel/.bashrc \
-	&& touch /etc/skel/readme.txt \
 	&& echo "You success make a new user, good job !!" >> /etc/skel/readme.txt \
 	&& mkdir /home/sudoer/workdir \
-	&& chown -R --from=root sudoer /home/sudoer
+	&& chown -R --from=root sudoer /home/sudoer \ 
+	&& echo 'echo -ne "\033]10;#FFFFFF\007"' >> /etc/skel/.bashrc \
+	&& echo 'echo -ne "\033]11;#2F0909\007"' >> /etc/skel/.bashrc 
+	 
 
 WORKDIR /home/sudoer/workdir
 ENV HOME /home/sudoer
@@ -78,17 +79,19 @@ USER sudoer
 ENV PATH $HOME/.local/bin:$PATH
 
 # Avoid first use of sudo warning.
-RUN touch $HOME/.sudo_as_admin_successful
-COPY install.sh /tmp
-RUN sudo chmod +x /tmp/install.sh
-RUN sudo bash -c "/tmp/install.sh"
+RUN touch /home/sudoer/.sudo_as_admin_successful
 
 #change baground shell
-RUN echo 'echo -ne "\033]10;#430064\007"' >> $HOME/.bashrc
-RUN echo 'echo -ne "\033]11;#FFFFFF\007"' >> $HOME/.bashrc
+RUN echo 'echo -ne "\033]10;#430064\007"' >> /home/sudoer/.bashrc
+RUN echo 'echo -ne "\033]11;#FFFFFF\007"' >> /home/sudoer/.bashrc
 
 #setting the home directory
-RUN echo 'HOME=/home/sudoer/workdir' >> $HOME/.bashrc
-RUN echo 'export NO_AT_BRIDGE=1' >> $HOME/.bashrc
+RUN echo 'HOME=/home/sudoer/workdir' >> /home/sudoer/.bashrc
+RUN echo 'export NO_AT_BRIDGE=1' >> /home/sudoer/.bashrc
+
+#chmode file
+#COPY install.sh /tmp
+#RUN sudo chmod +x /tmp/install.sh
+#RUN sudo bash -c "/tmp/install.sh"
 
 CMD [ "/bin/bash" ]

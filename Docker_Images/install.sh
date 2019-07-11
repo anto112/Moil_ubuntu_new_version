@@ -1,3 +1,3 @@
 #!/bin/bash
 
-chmod 777 -R /home
+chmod 777 /home/
