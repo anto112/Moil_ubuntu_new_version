@@ -26,6 +26,7 @@ RUN yes | unminimize \
 		xdg-utils \
  		nano \
 		git \
+		gedit \
 		make \
 		sudo \
 		tree \
