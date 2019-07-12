@@ -69,8 +69,8 @@ RUN useradd -m sudoer \
 	&& mkdir /home/sudoer/workdir \
 	&& chown -R --from=root sudoer /home/sudoer \ 
 	&& echo 'echo -ne "\033]10;#FFFFFF\007"' >> /etc/skel/.bashrc \
-	&& echo 'echo -ne "\033]11;#2F0909\007"' >> /etc/skel/.bashrc 
-	 
+	&& echo 'echo -ne "\033]11;#2F0909\007"' >> /etc/skel/.bashrc \
+	&& echo 'cd' >> /etc/skel/.bashrc	 
 
 WORKDIR /home/sudoer/workdir
 ENV HOME /home/sudoer
@@ -88,10 +88,5 @@ RUN echo 'echo -ne "\033]11;#FFFFFF\007"' >> /home/sudoer/.bashrc
 #setting the home directory
 RUN echo 'HOME=/home/sudoer/workdir' >> /home/sudoer/.bashrc
 RUN echo 'export NO_AT_BRIDGE=1' >> /home/sudoer/.bashrc
-
-#chmode file
-#COPY install.sh /tmp
-#RUN sudo chmod +x /tmp/install.sh
-#RUN sudo bash -c "/tmp/install.sh"
 
 CMD [ "/bin/bash" ]
