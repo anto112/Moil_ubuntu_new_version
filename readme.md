@@ -2,7 +2,8 @@
 
 *By : **Haryanto** (member of OIL-Lab in Ming Chi University of Technology, Taiwan)*
 
-=======================================================================================<span style="color:red">Nb:  This document is only for *Ubuntu system*</span>.
+***
+<span style="color:red">Nb:  This document is only for *Ubuntu system*</span>.
 
 This system is used for build a classroom system where a teacher want to give the sudo permission for student without risk. bellow this is some [advantages of docker](https://www.quora.com/What-is-Docker-and-what-are-the-advantages):
 
