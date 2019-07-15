@@ -22,7 +22,6 @@ RUN yes | unminimize \
 		gcc \
 		libsqlite3-dev \
 		sqlite3 \
-		apt-utils \
 		xdg-utils \
  		nano \
 		git \
@@ -36,6 +35,7 @@ RUN yes | unminimize \
 		wget \
 		gdb \
 		g++ \
+		finger \
 		software-properties-common \
 		pkg-config \
   		python3-pip \
@@ -67,13 +67,13 @@ RUN useradd -m sudoer \
 	&& sudo usermod -s /bin/bash sudoer \
 	&& cp /root/.bashrc /home/sudoer/ \
 	&& echo "You success make a new user, good job !!" >> /etc/skel/readme.txt \
-	&& mkdir /home/sudoer/workdir \
+	#&& mkdir /home/sudoer/workdir \
 	&& chown -R --from=root sudoer /home/sudoer \ 
 	&& echo 'echo -ne "\033]10;#FFFFFF\007"' >> /etc/skel/.bashrc \
 	&& echo 'echo -ne "\033]11;#2F0909\007"' >> /etc/skel/.bashrc \
 	&& echo 'cd' >> /etc/skel/.bashrc	 
 
-WORKDIR /home/sudoer/workdir
+WORKDIR /home/sudoer
 ENV HOME /home/sudoer
 ENV USER sudoer
 USER sudoer
@@ -85,6 +85,7 @@ RUN touch /home/sudoer/.sudo_as_admin_successful
 #change baground shell
 RUN echo 'echo -ne "\033]10;#430064\007"' >> /home/sudoer/.bashrc
 RUN echo 'echo -ne "\033]11;#FFFFFF\007"' >> /home/sudoer/.bashrc
+RUN echo 'cd' >> /home/sudoer/.bashrc
 
 #setting the home directory
 RUN echo 'HOME=/home/sudoer/workdir' >> /home/sudoer/.bashrc
