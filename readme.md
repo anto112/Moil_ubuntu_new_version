@@ -37,7 +37,8 @@ When you success install docker, setting the permission for [running docker with
 
 - setfacl -m user:*(name-user)*:rw /var/run/docker.sock 
 
-<span style="color:red">Nb: name-user is user you use, remove the brackets</span>.<img src="/Xrdp_setting/set.jpg"/>
+<span style="color:red">Nb: name-user is user you use, remove the brackets
+</span>.<img src="../Picture/set.jpg"/>
 
 #### 3. Build images
 
