@@ -76,7 +76,7 @@ When you want [running container](https://docs.docker.com/engine/reference/comma
 
   - **-it** 	= connect the container to terminal 
   - **-net=Host**  = a container will share the host’s network stack and all interfaces from the host will be available to the container.
-  - **-d **    = To start a container in detached mode
+  - **-d**    = To start a container in detached mode
   - **--volume /tmp/.x11-unix** = access X11 server for running user interface APP.
   - **-v /home/$USER/workdir:/home/sudoer** = create volume and mounting in host computer. to save the file when work in docker. In here, docker will mount in workdir folder. you can change the mounting folder wherever you want.
   - **--name** $USER         =  to give the same name with the name user in host computer (you can change the name with name what you want)
