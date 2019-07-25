@@ -1,8 +1,6 @@
 
 
-# Setting Environment for classroom 
-
-=======================================================================================
+# Setting Environment for Classroom 
 
 For manage classroom have many user we can use XRDP, Its mean student and teacher work in the same Operating System Machine with different user. student cat get in to the system with login in they are own user.
 
@@ -58,19 +56,23 @@ come to root user and execute the script following the command :
 
 If you want to change the name of student just edit the **user.txt** file.
 
-### 3. Delete student User
-
-Delete user will complete when you in the root user, following the command :
-
-* sh del_user.sh
-
-### 4. File system 
+### 3. File system 
 
 This system we use bind mount to connect the host directory in to a container. in Linux we can set the mode of permission of directory. so even all of student work in the same machine but they are cant access the file each other. for more clearly understand about the file system you can see the picture bellow this.
 
 <img src="../Picture/123.jpg" width="600" height="550" />
 
 Where the root/sudoer user have ability to add user,delete user and permission to read,write and execute all file from all user.
+
+### 4. create container for user
+
+After you add user, you also must create container for each user. you can execute the file of **run.sh** following the command:
+
+- sh run.sh
+
+to check the container you can use command :
+
+- docker ps
 
 ### 5. Running container in the system 
 
@@ -86,13 +88,24 @@ Where the root/sudoer user have ability to add user,delete user and permission t
 
 <img src="../Picture/3.jpg"/>
 
-4. copy the script 2sudoer.sh to home each user. and fullowing the command for running container Ubuntu system with sudo permision
+4. copy the script 2sudoer.sh to your home directory. and following the command for running container Ubuntu system with sudo permission
+   - sh 2sudoer.sh
 
 <img src="../Picture/4.jpg"/>
 
 5. the container will running and where user will change from original user to be sudoer user like picture bellow this.
 
 <img src="../Picture/5.jpg"/>
+
+
+
+### 6.Delete student User
+
+Delete user will complete when you in the root user, following the command :
+
+- sh del_user.sh
+
+
 
 #### Reference :
 
