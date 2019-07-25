@@ -38,7 +38,7 @@ When you success install docker, setting the permission for [running docker with
 
 - setfacl -m user:*(name-user)*:rw /var/run/docker.sock 
 
-<img src="/picture/set.jpg"/>
+<img src="/Picture/set.jpg"/>
 
 or you also can use sudo user
 
