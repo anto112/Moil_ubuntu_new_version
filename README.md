@@ -38,7 +38,7 @@ When you success install docker, setting the permission for [running docker with
 
 - setfacl -m user:*(name-user)*:rw /var/run/docker.sock 
 
-<img src="/picture/set.jpg"/>
+<img src="/Picture/set.jpg"/>
 
 or you also can use sudo user
 
@@ -76,7 +76,7 @@ When you want [running container](https://docs.docker.com/engine/reference/comma
 
   - **-it** 	= connect the container to terminal 
   - **-net=Host**  = a container will share the host’s network stack and all interfaces from the host will be available to the container.
-  - **-d **    = To start a container in detached mode
+  - **-d**    = To start a container in detached mode
   - **--volume /tmp/.x11-unix** = access X11 server for running user interface APP.
   - **-v /home/$USER/workdir:/home/sudoer** = create volume and mounting in host computer. to save the file when work in docker. In here, docker will mount in workdir folder. you can change the mounting folder wherever you want.
   - **--name** $USER         =  to give the same name with the name user in host computer (you can change the name with name what you want)
@@ -102,9 +102,9 @@ after container created, create new bash process inside the container and connec
 
 <img src="/Picture/exec.jpg" />
 
-When you get in docker system, it will change the terminal color, that is to distinguish with the terminal host. to make sure your docker environment can running user interface apps, you can typing **xclock**. it will show the picture like .
+When you get in docker system, it will change the terminal color, that is to distinguish with the terminal host. to make sure your docker environment can running user interface apps, you can typing **xclock**.
 
-or you also can running the container directly connect to terminal. just remove the command **-d** and **-- name** . look like picture bellow this.
+or you also can running the container directly connect to terminal. this is another way to running container in your PC. to running following this way, you just need remove the command **-d** and **-- name** . look like picture bellow this. it will get in to docker system.
 
 <img src="/Picture/drcnt.jpg" />
 
