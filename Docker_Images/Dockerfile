@@ -67,13 +67,13 @@ RUN useradd -m sudoer \
 	&& sudo usermod -s /bin/bash sudoer \
 	&& cp /root/.bashrc /home/sudoer/ \
 	&& echo "You success make a new user, good job !!" >> /etc/skel/readme.txt \
-	&& mkdir /home/sudoer/workdir \
+	#&& mkdir /home/sudoer/workdir \
 	&& chown -R --from=root sudoer /home/sudoer \ 
 	&& echo 'echo -ne "\033]10;#FFFFFF\007"' >> /etc/skel/.bashrc \
 	&& echo 'echo -ne "\033]11;#2F0909\007"' >> /etc/skel/.bashrc \
 	&& echo 'cd' >> /etc/skel/.bashrc	 
 
-WORKDIR /home/sudoer/workdir
+WORKDIR /home/sudoer
 ENV HOME /home/sudoer
 ENV USER sudoer
 USER sudoer
@@ -88,7 +88,7 @@ RUN echo 'echo -ne "\033]11;#FFFFFF\007"' >> /home/sudoer/.bashrc
 RUN echo 'cd' >> /home/sudoer/.bashrc
 
 #setting the home directory
-#RUN echo 'HOME=/home/sudoer' >> /home/sudoer/.bashrc
+RUN echo 'HOME=/home/sudoer' >> /home/sudoer/.bashrc
 RUN echo 'export NO_AT_BRIDGE=1' >> /home/sudoer/.bashrc
 
 CMD [ "/bin/bash" ]
