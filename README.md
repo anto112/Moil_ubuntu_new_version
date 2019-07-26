@@ -70,7 +70,7 @@ The command will show all the images available in your computer.
 
 When you want [running container](https://docs.docker.com/engine/reference/commandline/run/) from docker image we already build, you must following the syntax. example bellow this is the command run single container using same name with the user computer
 
-- **docker run --privileged=true -it -d --net=host -e DISPLAY --volume /tmp/.x11-unix -v /home/$USER/workdir:/home/sudoer --name $USER oil:1.3 /bin/bash**
+- **docker run --privileged=true -it -d --net=host -e DISPLAY --volume /tmp/.x11-unix -v /home/$USER:/home/sudoer --name $USER oil:1.3 /bin/bash**
 
   explanation:
 
@@ -78,7 +78,7 @@ When you want [running container](https://docs.docker.com/engine/reference/comma
   - **-net=Host**  = a container will share the host’s network stack and all interfaces from the host will be available to the container.
   - **-d**    = To start a container in detached mode
   - **--volume /tmp/.x11-unix** = access X11 server for running user interface APP.
-  - **-v /home/$USER/workdir:/home/sudoer** = create volume and mounting in host computer. to save the file when work in docker. In here, docker will mount in workdir folder. you can change the mounting folder wherever you want.
+  - **-v /home/$USER:/home/sudoer** = create volume and mounting in host computer. to save the file when work in docker. In here, docker will mount in workdir folder. you can change the mounting folder wherever you want.
   - **--name** $USER         =  to give the same name with the name user in host computer (you can change the name with name what you want)
   - **oil:1.3**         = that is the name and version of image docker we want to use.
 
