@@ -102,9 +102,9 @@ after container created, create new bash process inside the container and connec
 
 <img src="/Picture/exec.jpg" />
 
-When you get in docker system, it will change the terminal color, that is to distinguish with the terminal host. to make sure your docker environment can running user interface apps, you can typing **xclock**.
+When you get in docker system, it will change the user will become ***sudoer***. to make sure your docker environment can running user interface apps, you can typing **xclock**.
 
-or you also can running the container directly connect to terminal. this is another way to running container in your PC. to running following this way, you just need remove the command **-d** and **-- name** . look like picture bellow this. it will get in to docker system.
+**another way** you also can running the container directly connect to terminal. this is another way to running container in your PC. to running following this way, you just need remove the command **-d** and **-- name** . look like picture bellow this. it will get in to docker system.
 
 <img src="/Picture/drcnt.jpg" />
 
