@@ -1,4 +1,4 @@
-# Docker Image for classroom environment 
+# Docker Image Ubuntu for running User interface apps
 
 *By : **Haryanto** (member of OIL-Lab in Ming Chi University of Technology, Taiwan)*
 
